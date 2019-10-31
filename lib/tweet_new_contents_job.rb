@@ -25,11 +25,11 @@ class TweetNewContentsJob
   private
 
   def new_contents_tweet(contents)
-    new_content_text = '新たに動画が追加されました\n'
-    contents[0..9].each_with_object(new_content_text) do |content, text|
+    new_content_text = "新たに動画が追加されました\n"
+    tweet_text = contents[0..9].each_with_object(new_content_text) do |content, text|
       text += "#{content['title']}:#{@url}#{content['id']}\n"
     end
-    tweet_content(new_content_text)
+    tweet_content(tweet_text)
   end
 
   def content_diff(content_list_1, content_list_2)
